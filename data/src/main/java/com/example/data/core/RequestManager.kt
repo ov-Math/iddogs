@@ -9,10 +9,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
-class RequestManager {
-
-    internal object RequestManager {
-
+object RequestManager {
         private const val CONNECT_TIMEOUT = 60L
         private const val READ_TIMEOUT = 60L
         private const val WRITE_TIMEOUT = 60L
@@ -39,7 +36,7 @@ class RequestManager {
             return clientBuilder.build()
         }
 
-        fun provideRetrofit(baseURL: String, authentication: String? = null, isNullSerialized: Boolean = true): Retrofit {
+        fun provideRetrofit(baseURL: String, authentication: String? = null): Retrofit {
             provideRxDefaultErrorHandler()
             return Retrofit.Builder()
                 .baseUrl(baseURL)
@@ -50,5 +47,3 @@ class RequestManager {
         }
 
     }
-
-}
