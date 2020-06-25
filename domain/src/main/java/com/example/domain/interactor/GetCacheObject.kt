@@ -1,0 +1,23 @@
+package com.example.domain.interactor
+
+import com.example.domain.core.*
+
+class GetCacheObject (private val repository: CacheRepository) {
+
+    private var cacheKey : CacheKey? = null
+    private lateinit var cacheObjectClass: Class<out CacheObject>
+
+    fun with(cacheKey: CacheKey?, cacheObjectClass: Class<out CacheObject>) : GetCacheObject {
+        this.cacheKey = cacheKey
+        this.cacheObjectClass = cacheObjectClass
+        return this
+    }
+
+    @Throws(InvalidCacheKeyException::class)
+    fun execute() : CacheObject? {
+        if (this.cacheKey == null) {
+            throw InvalidCacheKeyException("The object to be stored in cache cannot be null")
+        }
+        return repository.getObject(cacheKey!!, cacheObjectClass)
+    }
+}
