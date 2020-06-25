@@ -3,4 +3,6 @@
     <string name="slogan">Um feed cheio de doguinhos como todas as redes sociais deveriam ser</string>
     <string name="login_text">Entre com o seu email:</string>
     <string name="login_btn">ENTRAR</string>
+    <string name="login_unauthorized_error">Credenciais inválidas!</string>
+    <string name="invalid_email_error">Formato de e-mail inválido!</string>
 </resources>
