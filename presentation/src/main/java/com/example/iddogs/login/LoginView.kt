@@ -1,4 +1,6 @@
 package com.example.iddogs.login
 
-interface LoginView {
+import com.example.iddogs.core.BaseView
+
+interface LoginView : BaseView {
 }
