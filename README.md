@@ -3,7 +3,9 @@
 Para o projeto em questão a arquitetura escolhida para estruturar o projeto foi a Clean Architecture. O projeto foi separado em 3 módulos: presentation, domain e data, representando as três camadas da arquitetura com baixo acoplamento entre elas, sendo independetes de frameworks e com altamente testáveis.
 
 Presentation - A camada presentation é um módulo android que é responsável por lidar com as interações do usuário com o aplicativo. Nela estão presentes os MVPs de cada tela.
+
 Domain - A camada domain é um módulo kotlin responsável por lidar com a lógica de negócio da aplicação e a comunicação entre a camada presentation e a camada data.
+
 Data - A camada de data é a responsável por lidar com dados, armazenamento e comunicação com agentes externos.
 
 Para exemplificar, no caso do fluxo de Login implementado no projeto em questão:
