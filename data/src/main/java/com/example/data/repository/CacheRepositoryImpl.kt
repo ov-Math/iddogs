@@ -17,9 +17,9 @@ class CacheRepositoryImpl (var context : Context) : CacheRepository {
         .create()
     private val cacheFileExtesion = "ckd"
 
-    override fun putObject(obect: CacheObject) {
+    override fun putObject(obect: CacheObject, prefix: String?) {
         try {
-            val cacheFileName = getCacheFileName(obect.cacheKey!!)
+            val cacheFileName = if(prefix.isNullOrBlank()) getCacheFileName(obect.cacheKey!!) else "${prefix}_${getCacheFileName(obect.cacheKey!!)}"
             val json = toJSON(obect)
 
             context.openFileOutput(cacheFileName, Context.MODE_PRIVATE).use {
@@ -32,10 +32,11 @@ class CacheRepositoryImpl (var context : Context) : CacheRepository {
         }
     }
 
-    override fun getObject(key: CacheKey, cacheObjectClass: Class<out CacheObject>): CacheObject? {
+    override fun getObject(key: CacheKey, cacheObjectClass: Class<out CacheObject>, prefix: String?): CacheObject? {
         try {
 
-            val cacheObjectJSON = readCacheFile(getCacheFileName(key))
+            val cacheFileName = if(prefix.isNullOrBlank()) getCacheFileName(key) else "${prefix}_${getCacheFileName(key)}"
+            val cacheObjectJSON = readCacheFile(cacheFileName)
             return gson.fromJson(cacheObjectJSON, cacheObjectClass)
 
         } catch (e: Exception) {

@@ -5,4 +5,5 @@ import com.example.iddogs.core.BaseView
 
 interface RacesView : BaseView {
     fun onRaceSelected(race : DogRacesDomain)
+    fun showGenericError()
 }
