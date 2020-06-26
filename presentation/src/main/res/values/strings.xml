@@ -5,4 +5,5 @@
     <string name="login_btn">ENTRAR</string>
     <string name="login_unauthorized_error">Credenciais inválidas!</string>
     <string name="invalid_email_error">Formato de e-mail inválido!</string>
+    <string name="dog_races_title">Escolha uma raça de cachorro:</string>
 </resources>

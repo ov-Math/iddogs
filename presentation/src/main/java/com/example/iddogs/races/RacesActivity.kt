@@ -3,10 +3,17 @@ package com.example.iddogs.races
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.iddogs.R
+import com.example.iddogs.core.BaseActivity
+import com.example.iddogs.core.Navigator
 
-class RacesActivity : AppCompatActivity() {
+class RacesActivity : BaseActivity(), RacesView {
+
+    private val presenter = RacesPresenter(Navigator(this))
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_races)
+
+        presenter.attachView(this)
     }
 }
