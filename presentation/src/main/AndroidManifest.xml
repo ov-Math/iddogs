@@ -14,7 +14,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".dogfeed.DogFeedActivity"></activity>
+        <activity android:name=".dogfeed.zoom.DogZoomActivity"></activity>
+        <activity android:name=".dogfeed.DogFeedActivity" />
         <activity android:name=".races.RacesActivity" />
         <activity android:name=".login.LoginActivity">
             <intent-filter>

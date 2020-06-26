@@ -3,6 +3,8 @@ package com.example.iddogs.core
 import android.content.Intent
 import com.example.iddogs.dogfeed.DogFeedActivity
 import com.example.iddogs.dogfeed.DogFeedPresenter
+import com.example.iddogs.dogfeed.zoom.DogZoomActivity
+import com.example.iddogs.dogfeed.zoom.DogZoomPresenter
 import com.example.iddogs.models.Feed
 import com.example.iddogs.races.RacesActivity
 
@@ -18,6 +20,12 @@ class Navigator (private val activity: BaseActivity) {
         val intent = Intent(activity, DogFeedActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT)
         intent.putExtra(DogFeedPresenter.DOG_FEED, feed)
+        activity.startActivity(intent)
+    }
+
+    fun navigateDogZoom(imagePath : String) {
+        val intent = Intent(activity, DogZoomActivity::class.java)
+        intent.putExtra(DogZoomPresenter.IMAGE_PATH, imagePath)
         activity.startActivity(intent)
     }
 

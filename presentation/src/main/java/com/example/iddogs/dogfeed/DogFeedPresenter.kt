@@ -13,6 +13,6 @@ class DogFeedPresenter (private val navigator: Navigator) : BasePresenter<DogFee
     lateinit var feed : Feed
 
     fun navigateDogZoom(uri : String) {
-
+        navigator.navigateDogZoom(uri)
     }
 }
