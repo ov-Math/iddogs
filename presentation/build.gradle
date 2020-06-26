@@ -28,6 +28,11 @@ android {
     }
 }
 
+repositories {
+    google()
+    jcenter()
+}
+
 dependencies {
     implementation project(":domain")
     implementation project(":data")
@@ -45,4 +50,7 @@ dependencies {
     implementation 'io.reactivex.rxjava3:rxandroid:3.0.0'
     // Anko
     implementation 'org.jetbrains.anko:anko-sdk25-coroutines:0.10.8'
+    // Glide
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
 }
