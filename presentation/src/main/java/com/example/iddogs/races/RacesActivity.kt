@@ -2,6 +2,7 @@ package com.example.iddogs.races
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.domain.model.DogRacesDomain
 import com.example.iddogs.R
 import com.example.iddogs.core.BaseActivity
 import com.example.iddogs.core.Navigator
@@ -15,5 +16,9 @@ class RacesActivity : BaseActivity(), RacesView {
         setContentView(R.layout.activity_races)
 
         presenter.attachView(this)
+    }
+
+    override fun onRaceSelected(race : DogRacesDomain) {
+
     }
 }
