@@ -40,7 +40,7 @@ object RequestManager {
             provideRxDefaultErrorHandler()
             return Retrofit.Builder()
                 .baseUrl(baseURL)
-                .client(provideHttpClient())
+                .client(provideHttpClient(authentication))
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
                 .build()
