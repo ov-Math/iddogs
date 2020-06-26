@@ -17,7 +17,7 @@ class DogRepositoryImpl : DogRepository {
     override fun getDogs(race: DogRacesDomain?, authorizationToken: String): Single<FeedDomain> {
         return ServicesFactory.instance()
             .getDogServices(authorizationToken)
-            .getDogs(race?.toString())
+            .getDogs(race?.text)
             .subscribeOn(Schedulers.newThread())
             .observeOn(AndroidSchedulers.mainThread())
             .map {

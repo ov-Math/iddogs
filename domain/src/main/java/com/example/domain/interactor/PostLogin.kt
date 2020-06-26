@@ -1,7 +1,7 @@
 package com.example.domain.interactor
 
 import com.example.domain.core.AuthorizationRepository
-import com.example.domain.core.InvalidRequestException
+import com.example.domain.core.exceptions.InvalidRequestException
 import com.example.domain.model.LoginDomain
 import com.example.domain.model.UserDomain
 import io.reactivex.rxjava3.core.Single

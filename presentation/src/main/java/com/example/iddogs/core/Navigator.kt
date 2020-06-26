@@ -21,6 +21,7 @@ class Navigator (private val activity: BaseActivity) {
         intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT)
         intent.putExtra(DogFeedPresenter.DOG_FEED, feed)
         activity.startActivity(intent)
+        activity.hideLoading()
     }
 
     fun navigateDogZoom(imagePath : String) {

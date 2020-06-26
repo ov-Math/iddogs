@@ -2,7 +2,7 @@ package com.example.domain.interactor
 
 import com.example.domain.core.CacheObject
 import com.example.domain.core.CacheRepository
-import com.example.domain.core.InvalidCacheObjectException
+import com.example.domain.core.exceptions.InvalidCacheObjectException
 
 class PutCacheObject (private val repository: CacheRepository) {
 
@@ -16,7 +16,9 @@ class PutCacheObject (private val repository: CacheRepository) {
     @Throws(InvalidCacheObjectException::class)
     fun execute() {
         if (this.cacheObject == null) {
-            throw InvalidCacheObjectException("The object to be stored in cache cannot be null")
+            throw InvalidCacheObjectException(
+                "The object to be stored in cache cannot be null"
+            )
         }
         repository.putObject(cacheObject!!)
     }

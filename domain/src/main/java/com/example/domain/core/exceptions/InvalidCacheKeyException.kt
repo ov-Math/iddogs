@@ -1,8 +1,8 @@
-package com.example.domain.core
+package com.example.domain.core.exceptions
 
 import java.lang.Exception
 
-class InvalidCacheObjectException (
+class InvalidCacheKeyException (
     var errorMessage : String,
     var obj : Any? = null) : Exception() {
 }

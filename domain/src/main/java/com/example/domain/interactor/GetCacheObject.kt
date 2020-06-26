@@ -1,6 +1,7 @@
 package com.example.domain.interactor
 
 import com.example.domain.core.*
+import com.example.domain.core.exceptions.InvalidCacheKeyException
 
 class GetCacheObject (private val repository: CacheRepository) {
 
