@@ -7,6 +7,7 @@ import com.example.domain.model.LoginDomain
 import com.example.domain.model.UserDomain
 import com.example.iddogs.core.BasePresenter
 import com.example.iddogs.core.Navigator
+import org.jetbrains.anko.doAsync
 
 class LoginPresenter (
     private val navigator: Navigator,
@@ -14,7 +15,7 @@ class LoginPresenter (
     private val emailValidator: EmailValidator,
     private val putCacheObject: PutCacheObject) : BasePresenter<LoginView>() {
 
-    fun logUserIn(email : String) {
+    fun logUserIn(email : String) = doAsync {
         view?.showLoading()
         if (isEmailValid(email)) {
             val requestBody = LoginDomain(email)

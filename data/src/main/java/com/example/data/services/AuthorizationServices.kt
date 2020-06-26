@@ -1,14 +1,14 @@
 package com.example.data.services
 
 import com.example.data.entity.Login
-import com.example.data.entity.User
+import com.example.data.entity.LoginResponse
 import io.reactivex.rxjava3.core.Single
 import retrofit2.http.Body
 import retrofit2.http.POST
 
 interface AuthorizationServices {
-    @POST("login")
+    @POST("signup")
     fun postLogin(
         @Body loginBody : Login
-    ) : Single<User>
+    ) : Single<LoginResponse>
 }

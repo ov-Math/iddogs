@@ -41,7 +41,7 @@ object RequestManager {
             return Retrofit.Builder()
                 .baseUrl(baseURL)
                 .client(provideHttpClient())
-                .addConverterFactory(GsonConverterFactory.create(GsonBuilder().excludeFieldsWithoutExposeAnnotation().serializeNulls().create()))
+                .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
                 .build()
         }

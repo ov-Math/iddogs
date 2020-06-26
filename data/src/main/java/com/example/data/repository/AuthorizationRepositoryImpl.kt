@@ -9,6 +9,7 @@ import com.google.gson.GsonBuilder
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Single
 import io.reactivex.rxjava3.schedulers.Schedulers
+import retrofit2.Call
 import retrofit2.HttpException
 
 class AuthorizationRepositoryImpl : AuthorizationRepository {
@@ -24,7 +25,7 @@ class AuthorizationRepositoryImpl : AuthorizationRepository {
             .subscribeOn(Schedulers.newThread())
             .observeOn(AndroidSchedulers.mainThread())
             .map {
-                it.asDomainModel()
+                it.user.asDomainModel()
             }
     }
 
