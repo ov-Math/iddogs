@@ -15,3 +15,16 @@ O usuário vê o layout e interage com ele. O layout é controlado por uma Activ
 
 Para tratar dos requests para os serviços da API, o projeto usa a lib Retrofit, que é amplamente utilizada. Através dela é possível especificar os serviços a serem chamados através de interfaces e anotações e mapear os retornos em objetos utilizando a lib Gson em conjunto para facilitar as conversões de objeto para json e vice-e-versa.
 
+3) Imagens
+
+Para tratar das imagens, as duas mais usadas libs são o Picasso e o Glide. Ambos tem funcionalidades parecidas, com pequenas diferenças e de acordo com o seguinte artigo que compara ambas libs (https://medium.com/@multidots/glide-vs-picasso-930eed42b81d), o Glide tem algumas poucas funcionalidades a mais e consomo menos memória por armazenar a imagem apenas uma vez na memória e a redimensionar quando necessário enquanto por sua vez o Picasso armazena ela uma vez pra cada tamanho que for utilizado. No entanto, pelo mesmo motivo, o Glide demora um pouco mais para a exibição das imagens. Para este projeto o Glide foi escolhido. O próprio Glide já faz o cache das imagens sozinho.
+
+4) Cache
+
+Na camada data está a implementação das funções de armazenamento e leitura de cache usando leitura e escrita de arquivos simples. Os objetos que herdarem de CacheObject são elegíveis para serem armazenados em cache, com a ajuda da lib Gson, o objeto é transformado em um json e o texto do json então é armazenado em um arquivo e persistido. Dessa maneira seria possível implementar uma verificação antes de ser exibida a tela de login para que, caso haja um token válido em cache, não seja necessário o usuário realizar manualmente o login. Esse projeto não contempla nenhuma forma de criptografar esses arquivos cacheados.
+
+5) Considerações finais
+
+- Injeção de dependências poderia ser usada para instanciar os interactors e repositories;
+
+- Devido a falta de tempo hábil para tal, os testes não foram implementados.
